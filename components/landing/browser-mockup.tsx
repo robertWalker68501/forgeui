@@ -5,23 +5,24 @@ import { Badge } from '../ui/badge';
 
 function BrowserMockup() {
   return (
-    <div className='relative mx-auto w-full max-w-3xl'>
-      <div className='absolute -inset-10 -z-10 bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.22),transparent_62%)] blur-2xl' />
+    // modified
+    <div className='relative mx-auto w-full min-w-0 max-w-[900px]'>
+      <div className='absolute -inset-4 -z-10 bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.22),transparent_62%)] blur-2xl sm:-inset-10' />
 
-      <div className='overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl shadow-teal-950/30'>
-        <div className='flex h-12 items-center gap-2 border-b border-white/10 px-4'>
+      <div className='overflow-hidden rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl shadow-teal-950/30 lg:h-[560px] xl:h-[600px] 2xl:h-[640px]'>
+        <div className='flex h-10 items-center gap-2 border-b border-white/10 px-3'>
           <span className='size-3 rounded-full bg-red-400' />
           <span className='size-3 rounded-full bg-amber-400' />
           <span className='size-3 rounded-full bg-emerald-400' />
 
-          <div className='mx-auto flex h-8 w-[55%] items-center gap-2 rounded-lg border border-white/10 bg-white/4 px-3 text-xs text-zinc-500'>
+          <div className='mx-auto flex h-8 min-w-0 max-w-[72%] flex-1 items-center gap-2 overflow-hidden rounded-lg border border-white/10 bg-white/4 px-3 text-xs text-zinc-500 sm:max-w-[60%]'>
             <LockKeyhole className='size-3' />
-            forgeui.dev/components/form-field-control
+            <span className='truncate'>forgeui.dev/components/form-field-control</span>
           </div>
         </div>
-
-        <div className='grid min-h-115 grid-cols-[170px_1fr]'>
-          <aside className='hidden border-r border-white/10 bg-black/20 p-4 sm:block'>
+        {/* Modified */}
+        <div className='grid min-h-0 grid-cols-1 lg:h-[calc(100%-2.5rem)] lg:grid-cols-[150px_minmax(0,1fr)]'>
+          <aside className='hidden overflow-hidden border-r border-white/10 bg-black/20 p-3 lg:block'>
             <div className='mb-5 flex items-center gap-2'>
               <ForgeMark className='size-7 rounded-lg' />
               <span className='font-semibold text-white'>ForgeUI</span>
@@ -54,8 +55,8 @@ function BrowserMockup() {
             </div>
           </aside>
 
-          <div className='p-4 sm:p-6'>
-            <div className='mb-5 flex flex-col justify-between gap-3 md:flex-row md:items-start'>
+          <div className='min-w-0 overflow-hidden p-3.5'>
+            <div className='mb-3 flex flex-col justify-between gap-2 md:flex-row md:items-start'>
               <div>
                 <div className='mb-2 flex items-center gap-2'>
                   <h3 className='text-xl font-semibold text-white'>
@@ -80,13 +81,13 @@ function BrowserMockup() {
               </div>
             </div>
 
-            <div className='rounded-xl border border-white/10 bg-white/2.5 p-4'>
-              <div className='grid gap-4 md:grid-cols-2'>
+            <div className='rounded-xl border border-white/10 bg-white/2.5 p-3'>
+              <div className='grid gap-2.5 md:grid-cols-2'>
                 <div className='space-y-2'>
                   <label className='text-xs font-medium text-zinc-300'>
                     Email address <span className='text-teal-400'>*</span>
                   </label>
-                  <div className='flex h-10 items-center rounded-md border border-white/10 bg-black/20 px-3 text-xs text-zinc-500'>
+                  <div className='flex h-9 items-center rounded-md border border-white/10 bg-black/20 px-3 text-xs text-zinc-500'>
                     you@example.com
                   </div>
                 </div>
@@ -95,7 +96,7 @@ function BrowserMockup() {
                   <label className='text-xs font-medium text-zinc-300'>
                     Category <span className='text-teal-400'>*</span>
                   </label>
-                  <div className='flex h-10 items-center justify-between rounded-md border border-white/10 bg-black/20 px-3 text-xs text-zinc-500'>
+                  <div className='flex h-9 items-center justify-between rounded-md border border-white/10 bg-black/20 px-3 text-xs text-zinc-500'>
                     Select an option
                     <ArrowRight className='size-3 rotate-90' />
                   </div>
@@ -117,13 +118,13 @@ function BrowserMockup() {
                   <label className='text-xs font-medium text-zinc-300'>
                     Message
                   </label>
-                  <div className='h-20 rounded-md border border-white/10 bg-black/20 p-3 text-xs text-zinc-500'>
+                  <div className='h-14 rounded-md border border-white/10 bg-black/20 p-3 text-xs text-zinc-500'>
                     Write your message...
                   </div>
                 </div>
               </div>
 
-              <div className='mt-5 flex gap-2'>
+              <div className='mt-3 flex gap-2'>
                 <span className='rounded-md bg-teal-500 px-4 py-2 text-xs font-medium text-white'>
                   Save changes
                 </span>
@@ -133,12 +134,12 @@ function BrowserMockup() {
               </div>
             </div>
 
-            <div className='relative mt-4 -mb-10 ml-auto max-w-md rounded-xl border border-white/10 bg-zinc-950 p-4 shadow-xl'>
+            <div className='relative mt-4 ml-auto w-full max-w-md rounded-xl border border-white/10 bg-zinc-950 p-4 shadow-xl lg:hidden'>
               <div className='mb-3 flex items-center justify-between text-[10px] text-zinc-600'>
                 <span>TSX</span>
                 <Copy className='size-3' />
               </div>
-              <pre className='overflow-hidden text-[10px] leading-5 text-zinc-500'>
+              <pre className='overflow-x-auto text-[10px] leading-5 text-zinc-500'>
                 <code>
                   <span className='text-cyan-300'>{'<FormFieldControl'}</span>
                   {'\n  '}
